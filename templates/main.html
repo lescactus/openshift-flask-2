@@ -1,0 +1,68 @@
+<div class="table-responsive">
+  <table class="table table-hover table-striped table-bordered">
+    <tbody>
+      <tr>
+        <td>Your IP</td>
+        <td>{{ ip }}</td>
+      </tr>
+      <tr>
+        <td>Your port</td>
+        <td>{{ port }}</td>
+      </tr>
+      <tr>
+        {% if reverse %}
+          <td>Reverse lookup</td>
+          <td>{{ reverse }}</td>
+        {% else %}
+          <td>No reverse lookup available</td>
+        {% endif %}
+      </tr>
+      {% if iplocation["info"] is defined %}
+          <tr>
+            <td>IP location infos</td>
+            <td>Sorry, No IP location info available (private IP ?)</td>
+          </tr>
+      {% else %}
+        <tr>
+            <td>Continent</td>
+            <td>{{ iplocation["continent"] }}</td>
+        </tr>
+        <tr>
+            <td>Country Name</td>
+            <td>{{ iplocation["country_name"] }}</td>
+        </tr>
+        <tr>
+            <td>Country Code</td>
+            <td>{{ iplocation["country_code"] }}</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>{{ iplocation["city"] }}</td>
+        </tr>
+        <tr>
+            <td>Postal Code</td>
+            <td>{{ iplocation["postal_code"] }}</td>
+        </tr>
+        <tr>
+            <td>Longitude</td>
+            <td>{{ iplocation["longitude"] }}</td>
+        </tr>  
+        <tr>
+            <td>Latitude</td>
+            <td>{{ iplocation["latitude"] }}</td>
+        </tr>
+      {% endif %}
+        
+      <tr class="separator text-center">
+        <td>Header</td>
+        <td>Value</td>
+      </tr>
+      {% for key, value in parent_dict.items() %}
+        <tr>
+          <td>{{key}}</td>
+          <td>{{value}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

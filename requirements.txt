@@ -1,0 +1,4 @@
+flask
+dnspython
+dicttoxml
+pygeoip

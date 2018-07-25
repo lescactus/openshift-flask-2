@@ -1,0 +1,51 @@
+  <div class="table-responsive">
+  <table class="table table-hover table-striped table-bordered">
+    <tbody>
+      <tr>
+        <td><a href={{ url_for('main') }}>{{ servername }}/</a></td>
+        <td>This page</td>
+      </tr>
+      <tr>
+        <td><a href={{ url_for('main') }}>{{ servername }}/index/</a></td>
+        <td>Also this page</td>
+      </tr>
+      <tr>
+        <td><a href={{ url_for('ip') }}>{{ servername }}/ip/</a></td>
+        <td>{{ ip }}</td>
+      </tr>
+      <tr>
+        <td><a href={{ url_for('port') }}>{{ servername }}/port/</a></td>
+        <td>{{ port }}</td>
+      </tr>
+      <tr>
+        <td><a href={{ url_for('reverse') }}>{{ servername }}/reverse/</td>
+        <td>{{ reverse }}</td>
+      </tr>
+      <tr>
+        <td><a href={{ url_for('iplocation') }}>{{ servername }}/iplocation/</td>
+        <td>{% include "iplocation.html" %}</td>
+      </tr>
+        {% for key, value in parent_dict.items() %}
+          {% if key == "User-Agent" %}
+            <tr>
+              <td><a href={{ url_for('ua') }}>{{ servername }}/ua/</a></td>
+              <td>{{ value }}</td>
+            </tr>
+          {% elif key == "Accept-Language" %}
+            <tr>
+              <td><a href={{ url_for('lang') }}>{{ servername }}/lang/</a></td>
+              <td>{{ value }}</td>
+            </tr>      
+          {% endif %}  
+        {% endfor %}
+      <tr>
+        <td><a href={{ url_for('raw', type="json") }}>{{ servername }}/raw/json/</a></td>
+        <td>{{ json }}</td>
+      </tr>
+      <tr>
+        <td><a href={{ url_for('raw', type="xml") }}>{{ servername }}/raw/xml/</a></td>
+        <td>{{ xml }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

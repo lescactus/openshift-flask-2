@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  {% include "header.html" %}
+
+  <body>
+    <h1 class="text-center">Who am I ? 
+      <small>
+        <a href={{ url_for('main') }}>{{ servername }}</a>
+      </small>
+    </h1>
+
+    <div class="container">
+      <h2>Info from your browser</h2>
+      {% include "main.html" %}
+    </div>
+
+    {# If the coordonates are not defined, no need to display the map #}
+    {% if iplocation["longitude"] is defined and iplocation["latitude"] is defined %}
+      <div class="container space-div">
+          <h2>Where you are</h2>
+          {% include "map.html" %}
+      </div>
+    {% endif %}
+
+
+    <div class="container space-div">
+    <h2>Site map</h2>    
+      {% include "second.html" %}
+  </div>
+  </body>
+</html>
