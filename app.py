@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+host='0.0.0.0', port=8080#!/usr/bin/env python3
  
 # export FLASK_APP=app.py
 # export FLASK_DEBUG=1
@@ -175,4 +175,4 @@ def get_full_ip_info(ip):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
